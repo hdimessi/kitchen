@@ -1,0 +1,11 @@
+<div class="row justify-content-center mb-4">
+  <div class="col-8">
+    <app-shopping-edit></app-shopping-edit>
+    <hr>
+    <ul class="list-group">
+      <a href="javascript:;" class="list-group-item" *ngFor="let ingredient of ingredients">
+        <span class="text-secondary">{{ ingredient.name }}</span> <span class="badge badge-pill badge-secondary float-right">{{ ingredient.amount}}</span>
+      </a>
+    </ul>
+  </div>
+</div>
