@@ -1,7 +1,7 @@
 <div class="card">
-  <img src="https://scontent.cdninstagram.com/vp/48c51fce6debdd373ad161dd563a9459/5D0AA3A3/t51.2885-15/e35/s480x480/52116035_631462337278109_1269396438204052541_n.jpg?_nc_ht=scontent-sea1-1.cdninstagram.com" class="img-fluid rounded mw-50" alt="..." />
+  <img [src]="recipe.imagePath" class="img-fluid rounded mw-50" alt="{{recipe.name}}" />
   <div class="card-body">
-    <h5 class="card-title">Recipe Name</h5>
+    <h5 class="card-title">{{ recipe.name }}</h5>
     <div class="dropdown my-2">
       <button
         class="btn btn-primary dropdown-toggle"
@@ -20,8 +20,7 @@
       </div>
     </div>
     <p class="card-text">
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
+      {{ recipe.description }}
     </p>
     <ul>
       Ingredients

@@ -1,6 +1,6 @@
 <div class="row justify-content-center mb-4">
   <div class="col-8">
-    <app-shopping-edit></app-shopping-edit>
+    <app-shopping-edit (ingredientAdded)="onIngredientWasAdded($event)"></app-shopping-edit>
     <hr>
     <ul class="list-group">
       <a href="javascript:;" class="list-group-item" *ngFor="let ingredient of ingredients">

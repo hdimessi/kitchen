@@ -5,27 +5,11 @@
 </div>
 <div class="row m-1">
   <div class="col-12">
-    <a
-      href="javascript:;"
-      class="list-group-item list-group-item-action clearfix p-3 p-md-2 p-lg-3 my-1"
-      *ngFor="let recipe of recipes"
-    >
-      <div class="d-flex w-100 justify-content-between">
-        <div class="col-8 p-0">
-          <h5 class="mb-1">{{ recipe.name }}</h5>
-          <p class="mb-1">
-            {{ (recipe.description.length>90)? (recipe.description | slice:0:90)+'..':(recipe.description) }}
-          </p>
-        </div>
-        <div class="col-4 p-0">
-          <img
-            class="img-fluid img-thumbnail rounded"
-            alt="{{ recipe.name }}"
-            src="{{ recipe.imagePath }}"
-          />
-        </div>
-      </div>
-    </a>
-    <app-recipe-item></app-recipe-item>
+    
+    <app-recipe-item 
+    *ngFor="let recipeEl of recipes" 
+    [recipe]="recipeEl"
+    (recipeSelected)="onRecipeSelected(recipeEl)"
+    ></app-recipe-item>
   </div>
 </div>
