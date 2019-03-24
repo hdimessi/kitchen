@@ -2,19 +2,17 @@
   <img [src]="recipe.imagePath" class="img-fluid rounded mw-50" alt="{{recipe.name}}" />
   <div class="card-body">
     <h5 class="card-title">{{ recipe.name }}</h5>
-    <div class="dropdown my-2">
+    <div class="dropdown my-2" appDropdown>
       <button
         class="btn btn-primary dropdown-toggle"
         type="button"
-        id="dropdownMenuButton"
-        data-toggle="dropdown"
         aria-haspopup="true"
         aria-expanded="false"
       >
         Manage Recipe
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="javascript:;">To Shopping List</a>
+        <a (click)="onAddToShoppingList()" class="dropdown-item" href="javascript:;">To Shopping List</a>
         <a class="dropdown-item" href="javascript:;">Edit Recipe</a>
         <a class="dropdown-item" href="javascript:;">Delete Recipe</a>
       </div>
@@ -22,8 +20,10 @@
     <p class="card-text">
       {{ recipe.description }}
     </p>
-    <ul>
-      Ingredients
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
+        <span class="text-secondary">{{ ingredient.name }}</span> <span class="badge badge-pill badge-secondary float-right">{{ ingredient.amount}}</span>
+      </li>
     </ul>
   </div>
 </div>

@@ -5,11 +5,9 @@
   <button
     class="navbar-toggler"
     type="button"
-    data-toggle="collapse"
-    data-target="#navbarSupportedContent"
-    aria-controls="navbarSupportedContent"
     aria-expanded="false"
     aria-label="Toggle navigation"
+    appCollapse
   >
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -26,19 +24,20 @@
     </div>
     <div class="col-6 navbar-nav justify-content-end">
         
-      <div class="nav-item dropdown">
+      <div class="nav-item dropdown ml-3" appDropdown>
         <a
           class="nav-link dropdown-toggle"
           href="javascript:;"
-          id="navbarDropdown"
           role="button"
-          data-toggle="dropdown"
           aria-haspopup="true"
           aria-expanded="false"
         >
           Manage
         </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <div 
+        class="dropdown-menu dropdown-menu-right" 
+        aria-labelledby="navbarDropdown"
+        >
           <a class="dropdown-item" href="javascript:;">Action</a>
           <a class="dropdown-item" href="javascript:;">Another action</a>
           <div class="dropdown-divider"></div>

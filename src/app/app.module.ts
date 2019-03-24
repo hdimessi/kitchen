@@ -1,3 +1,4 @@
+import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -14,6 +15,8 @@ import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
+import { DropdownDirective } from './shared/dropdown.directive';
+import { CollapseDirective } from './shared/collapse.directive';
 
 library.add(faUtensils);
 
@@ -26,14 +29,16 @@ library.add(faUtensils);
       ShoppingEditComponent,
       RecipeDetailComponent,
       RecipeListComponent,
-      RecipeItemComponent
+      RecipeItemComponent,
+      DropdownDirective,
+      CollapseDirective
    ],
    imports: [
       BrowserModule,
       AppRoutingModule,
       FontAwesomeModule
    ],
-   providers: [],
+   providers: [ShoppingListService],
    bootstrap: [
       AppComponent
    ]
