@@ -1,25 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Recipe } from './recipe.model';
 import { RecipeService } from './recipe.service';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute, Data, Params } from '@angular/router';
 
 @Component({
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
-  styleUrls: [],
-  providers: [RecipeService]
+  styleUrls: []
 })
 export class RecipesComponent implements OnInit {
 
-  selectedRecipe: Recipe;
+  constructor(private route: ActivatedRoute) {}
 
-  constructor(private recipeService: RecipeService) { }
-
-  ngOnInit() {
-    this.recipeService.recipeSelected.subscribe(
-      (recipe: Recipe) => {
-        this.selectedRecipe = recipe;
-      }
-    );
-  }
-
+  ngOnInit() {}
 }

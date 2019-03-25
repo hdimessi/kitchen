@@ -1,0 +1,18 @@
+a {
+    max-height: 150px;
+    max-width: 800px;
+    overflow: hidden;
+}
+
+img {
+    max-height: 120px;
+}
+
+p {
+    font-size: 0.8em;
+}
+
+.active {
+    background-color: gray;
+    border-color: gray;
+}

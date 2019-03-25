@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light">
-  <a class="navbar-brand" href="/"
+  <a class="navbar-brand" [routerLink]="['/']"
     ><fa-icon icon="utensils" class="mr-2"></fa-icon>Kitchen</a
   >
   <button
@@ -14,11 +14,11 @@
   <div id="navbarSupportedContent" class="collapse navbar-collapse justify-content-between">
     <div class="col-6">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a (click)="onSelect('recipe')" class="nav-link" id="login-btn" href="javascript:;">Recipes</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a [routerLink]="['/recipes']" class="nav-link" id="login-btn">Recipes</a>
         </li>
-        <li class="nav-item">
-          <a (click)="onSelect('shopping-list')" class="nav-link" id="register-btn" href="javascript:;">Shopping List</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a [routerLink]="['/shopping-list']" class="nav-link" id="register-btn">Shopping List</a>
         </li>
       </ul>
     </div>
