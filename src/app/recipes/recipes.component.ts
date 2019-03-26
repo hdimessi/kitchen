@@ -1,8 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { Recipe } from './recipe.model';
-import { RecipeService } from './recipe.service';
-import { Subscription } from 'rxjs';
-import { ActivatedRoute, Data, Params } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-recipes',
@@ -11,7 +7,7 @@ import { ActivatedRoute, Data, Params } from '@angular/router';
 })
 export class RecipesComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) {}
+  constructor() {}
 
   ngOnInit() {}
 }
