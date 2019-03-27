@@ -14,7 +14,7 @@
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <a (click)="onAddToShoppingList()" class="dropdown-item" href="javascript:;">To Shopping List</a>
         <a class="dropdown-item" [routerLink]="['edit']">Edit Recipe</a>
-        <a class="dropdown-item" href="javascript:;">Delete Recipe</a>
+        <a class="dropdown-item" (click)="onDelete()" href="javascript:;">Delete Recipe</a>
       </div>
     </div>
     <p class="card-text">

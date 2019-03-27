@@ -2,6 +2,7 @@ import { RecipeResolver } from './recipes/recipe-resolver.service';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -42,7 +43,9 @@ library.add(faUtensils);
    imports: [
       BrowserModule,
       AppRoutingModule,
-      FontAwesomeModule
+      FontAwesomeModule,
+      FormsModule,
+      ReactiveFormsModule
    ],
    providers: [ShoppingListService, RecipeService, RecipeResolver ],
    bootstrap: [
