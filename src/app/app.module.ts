@@ -1,3 +1,5 @@
+import { AuthenticationService } from './auth/authentication.service';
+import { HttpClientModule }    from '@angular/common/http';
 import { RecipeResolver } from './recipes/recipe-resolver.service';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,6 +24,7 @@ import { CollapseDirective } from './shared/collapse.directive';
 import { RecipeService } from './recipes/recipe.service';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { SingupComponent } from './auth/singup/singup.component';
 
 library.add(faUtensils);
 
@@ -38,16 +41,18 @@ library.add(faUtensils);
       DropdownDirective,
       CollapseDirective,
       RecipeStartComponent,
-      RecipeEditComponent
+      RecipeEditComponent,
+      SingupComponent
    ],
    imports: [
       BrowserModule,
       AppRoutingModule,
       FontAwesomeModule,
       FormsModule,
+      HttpClientModule,
       ReactiveFormsModule
    ],
-   providers: [ShoppingListService, RecipeService, RecipeResolver ],
+   providers: [ShoppingListService, RecipeService, RecipeResolver, AuthenticationService ],
    bootstrap: [
       AppComponent
    ]
