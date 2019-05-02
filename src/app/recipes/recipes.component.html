@@ -1,8 +1,8 @@
 <div class="row">
-  <div class="col-md-5">
+  <div [ngClass]="{'col-md-12': displayFullList, 'col-md-5': !displayFullList}" >
     <app-recipe-list></app-recipe-list>
   </div>
-  <div class="col-md-7">
+  <div [ngClass]="{'d-none': displayFullList, 'col-md-7': !displayFullList}">
     <router-outlet></router-outlet>
   </div>
 </div>

@@ -1,51 +1,95 @@
-<div class="row justify-content-center">
-  <div class="col-12 col-sm-10 col-md-8 col-lg-6">
-      <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
-            <div class="form-group">
-              <label for="username">Name</label>
-              <input
-                type="text"
-                id="name"
-                formControlName="name"
-                class="form-control"
-              />
-              <small
-                *ngIf="
-                  !signupForm.get('name').valid &&
-                  signupForm.get('name').touched
-                "
-                class="form-text text-muted"
-                >
-                This name is invalid!
-                </small>
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input
-                type="text"
-                id="email"
-                formControlName="email"
-                class="form-control"
-              />
-              <small
-                *ngIf="
-                  !signupForm.get('email').valid &&
-                  signupForm.get('email').touched
-                "
-                class="form-text text-muted"
-                >Please enter a valid email!</small
-              >
-            </div>
-          <div class="radio" *ngFor="let gender of genders">
-            <label>
-              <input type="radio" formControlName="gender" [value]="gender" />{{
-                gender
-              }}
-            </label>
+
+<div [class.right-panel-active]="showSignup" class="container mt-4" id="container">
+	<div class="form-container sign-up-container">
+		<form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+			<h1>Create Account</h1>
+			<div class="social-container">
+				<a href="#" class="social"><fa-icon [icon]="['fab', 'facebook-f']"></fa-icon></a>
+				<a href="#" class="social"><fa-icon [icon]="['fab', 'google']"></fa-icon></a>
+			</div>
+      <span>or use your email for registration</span>
+
+      <div class="custom-form-group">
+        <div class="d-flex align-items-center justify-content-center">
+          <div class="col-10 p-0">
+            <input formControlName="name" type="text" placeholder="Name" />
           </div>
-          
-          <button class="btn btn-primary" type="submit" [disabled]="!signupForm.valid">Submit</button>
-          
-        </form>
-  </div>
+        </div>
+        <small *ngIf="!signupForm.get('name').valid && signupForm.get('name').touched"
+            class="form-text text-muted">
+          <span *ngIf="signupForm.get('name').errors['tooShort'];else elseShortName">
+              Name is too short - minLength 3</span>
+          <ng-template #elseShortName>This name is invalid!</ng-template>
+        </small>
+      </div>
+
+      <div class="custom-form-group">
+          <div class="d-flex align-items-center justify-content-center">
+              <div class="col-1"></div>
+              <div class="col-10 p-0">
+                <input formControlName="email" type="email" placeholder="Email" />
+              </div>
+              <div [ngClass]="{'checkmark': verifyingEmail === 2, 
+                                'exclamation': verifyingEmail === 3,
+                                'loader': verifyingEmail === 1
+                              }" 
+                    class="col-1 justify-content-center px-0 pt-1 indicator float-right"
+              >
+                <fa-icon *ngIf="verifyingEmail === 2" [icon]="['far', 'check-circle']"></fa-icon>
+                <fa-icon *ngIf="verifyingEmail === 3" [icon]="['fas', 'exclamation']"></fa-icon>
+              </div>
+            </div>
+            <small *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched && signupForm.get('email').errors" class="form-text text-muted mt-0 mb-2">
+                <span *ngIf="signupForm.get('email').errors['emailUsed'];else elseEmailUsed">
+                  This Email is already used
+                </span>
+                <ng-template #elseEmailUsed>Please enter a valid email.</ng-template>
+            </small>
+      </div>
+
+      <div class="custom-form-group">
+        <div class="d-flex align-items-center justify-content-center">
+          <div class="col-10 p-0">
+            <input formControlName="password" type="password" placeholder="Password" />
+          </div>
+        </div>
+        <small *ngIf="!signupForm.get('password').valid && signupForm.get('password').touched" class="form-text text-muted">
+          <span *ngIf="signupForm.get('password').errors['tooShort'];else elseShortPassword">
+            Password is too short - minLength 8
+          </span>
+          <ng-template #elseShortPassword>Please enter a valid password!</ng-template>
+        </small>
+      </div>
+      
+			<button class="mt-2" type="submit" [disabled]="!signupForm.valid">Sign Up</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+			<h1>Sign in</h1>
+			<div class="social-container">
+        <a href="#" class="social"><fa-icon [icon]="['fab', 'facebook-f']"></fa-icon></a>
+        <a href="#" class="social"><fa-icon [icon]="['fab', 'google']"></fa-icon></a>
+			</div>
+			<span>or use your account</span>
+			<input formControlName="email" type="email" placeholder="Email" />
+			<input formControlName="password" type="password" placeholder="Password" />
+			<a href="javascript:;">Forgot your password?</a>
+			<button>Sign In</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome Back!</h1>
+				<p>To keep connected with us please login with your personal info</p>
+				<button (click)="toggleView()" class="ghost" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hello, Friend!</h1>
+				<p>Enter your personal details and start journey with us</p>
+				<button (click)="toggleView(signupBtn.id)" class="ghost" id="signUp" #signupBtn>Sign Up</button>
+			</div>
+		</div>
+	</div>
 </div>

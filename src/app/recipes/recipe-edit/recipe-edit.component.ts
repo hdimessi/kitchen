@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Data, Router } from '@angular/router';
-import { Recipe } from '../recipe.model';
+import { Recipe } from '../../models/recipe.model';
 import { RecipeService } from '../recipe.service';
 
 @Component({
@@ -65,7 +65,6 @@ export class RecipeEditComponent implements OnInit {
 
   onSubmit() {
     const newRecipe = new Recipe(
-      this.recipeService.getRecipes().length + 1,
       this.recipeForm.value.name,
       this.recipeForm.value.description,
       this.recipeForm.value.imagePath,

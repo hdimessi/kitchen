@@ -1,0 +1,17 @@
+
+.shown {
+    opacity: 1;
+    position: absolute;
+    min-width: 25rem;
+    background-color: rgba(255, 255, 255, 1);
+    top: 0;
+    right: 0;
+}
+
+.success {
+    color: green;
+}
+
+.error {
+    color: red;
+}

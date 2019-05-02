@@ -1,12 +1,25 @@
 #navbarSupportedContent.collapsed {
-    max-height: 0;
-    transition: max-height 0.4s ease-out;
-    overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease-out;
+  overflow: hidden;
 }
 #navbarSupportedContent.show {
-    max-height: 500px;
-    transition: max-height 0.4s ease-in;
+  max-height: 500px;
+  transition: max-height 0.4s ease-in;
 }
 .active {
-    font-weight: 500;
+  font-weight: 500;
+}
+
+.form-control {
+  width: 150px;
+}
+
+.form-control.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+img {
+  height: 3rem;
+  width: 3rem;
 }

@@ -1,4 +1,5 @@
-import { Ingredient } from '../models/ingredient.model';
+import { User } from './user.model';
+import { Ingredient } from './ingredient.model';
 
 export class Recipe {
     public id: number;
@@ -6,12 +7,14 @@ export class Recipe {
     public description: string;
     public imagePath: string;
     public ingredients: Ingredient[];
+    public author: User;
 
-    constructor(id: number, name: string, desc: string, imagePath: string, ingredients: Ingredient[]) {
+    constructor(name: string, desc: string, imagePath: string, ingredients: Ingredient[], id?: number,  author?: User) {
         this.id = id;
         this.name = name;
         this.description = desc;
         this.imagePath = imagePath;
         this.ingredients = ingredients;
+        this.author = author;
     }
 }
