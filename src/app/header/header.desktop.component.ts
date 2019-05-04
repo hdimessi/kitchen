@@ -1,16 +1,16 @@
-import { CurrentUser } from './../models/current-user.model';
-import { AuthenticationService } from './../auth/authentication.service';
+import { CurrentUser } from '../models/current-user.model';
+import { AuthenticationService } from '../auth/authentication.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthGuard } from '../auth/auth.guard';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'app-header-desktop',
+  templateUrl: './header.desktop.component.html',
+  styleUrls: ['./header.desktop.component.css']
 })
-export class HeaderComponent implements OnDestroy, OnInit {
+export class HeaderDesktopComponent implements OnDestroy, OnInit {
   currentUser: CurrentUser;
   currentUserSubscription: Subscription;
 

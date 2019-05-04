@@ -1,8 +1,8 @@
 <div class="row">
-  <div [ngClass]="{'col-md-12': displayFullList, 'col-md-5': !displayFullList}" >
+  <div class="animate-transition" [ngClass]="{'col-md-12': displayFullList, 'd-none d-md-block col-md-5': !displayFullList}" >
     <app-recipe-list></app-recipe-list>
   </div>
-  <div [ngClass]="{'d-none': displayFullList, 'col-md-7': !displayFullList}">
+  <div class="col-12 col-md-7" [ngClass]="{'d-none': !displaySideView}">
     <router-outlet></router-outlet>
   </div>
 </div>

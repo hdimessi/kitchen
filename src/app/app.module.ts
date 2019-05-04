@@ -17,7 +17,7 @@ import { faFacebookF, faGoogle } from '@fortawesome/free-brands-svg-icons';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderDesktopComponent } from './header/header.desktop.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
@@ -43,7 +43,7 @@ library.add(faGoogle);
 @NgModule({
    declarations: [
       AppComponent,
-      HeaderComponent,
+      HeaderDesktopComponent,
       RecipesComponent,
       ShoppingListComponent,
       ShoppingEditComponent,

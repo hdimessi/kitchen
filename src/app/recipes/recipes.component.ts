@@ -6,17 +6,26 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
-  styleUrls: []
+  styleUrls: ['./recipes.component.css']
 })
 export class RecipesComponent implements OnInit, OnDestroy {
 
   displayFullList = true;
+  displaySideView = false;
   private subscription: Subscription;
 
   constructor(private router: Router) {
     this.subscription = this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.displayFullList = event.url.includes('recipes/') ? false : true;
+        if (event.url.includes('recipes/')) {
+          this.displayFullList = false;
+          setTimeout(() => {
+            this.displaySideView = true;
+          }, 500);
+        } else {
+          this.displaySideView = false;
+          this.displayFullList = true;
+        }
       }
     });
   }

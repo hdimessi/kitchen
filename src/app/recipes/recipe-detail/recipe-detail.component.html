@@ -1,4 +1,16 @@
 <div class="card">
+  <div>
+    <a class="close-btn" [routerLink]="['../']">
+      <span class="left">
+        <span class="circle-left"></span>
+        <span class="circle-right"></span>
+      </span>
+      <span class="right">
+        <span class="circle-left"></span>
+        <span class="circle-right"></span>
+      </span>
+    </a>
+  </div>
   <img [src]="recipe.imagePath" class="img-fluid rounded mw-50" alt="{{recipe.name}}" />
   <div class="card-body">
     <h5 class="card-title">{{ recipe.name }}</h5>
